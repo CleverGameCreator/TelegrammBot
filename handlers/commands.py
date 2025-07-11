@@ -2,25 +2,33 @@ from aiogram import Router, F
 from aiogram.types import Message
 from aiogram.filters import Command, CommandStart
 
+import keyboard.reply_kb as rkb
+from keyboard.reply_kb import reply_start
 
 router = Router()
 
 
 
-# Функция /start при нажатии пишет текст
+# Функция /start при нажатии пишет текст приветствие
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer('Привет, чел!   нажми /help')
+    await message.answer('Привет, чел!   нажми /help ', reply_markup=rkb.reply_start)
 
-# Функция /help при нажатии пишет текст
+# Функция /help при нажатии пишет текст помощи
 @router.message(Command('help'))
 async def cmd_help(message: Message):
-    await message.answer('Я готов помогать! (Но это не точно)')
+    await message.answer(
+                        f'Тут ты увидишь список всех команд (Но это не точно):\n'
+                        f'/start\n'
+                        f'/help\n'
+                        f'/about'
+                       )
 
 
+# Функция /about при нажатии пишет текст кем был создан бот
 @router.message(Command('about'))
 async def cmd_about(message: Message):
-    await message.answer('Я бот который был  создан человеком нефором он любит жесткие  тусы и веселье :)')
+    await message.answer('Я бот который был создан крутым челом Трифоном он любит лютые, жесткие тусы и веселье :)')
 
 
 '''

@@ -1,4 +1,6 @@
 import asyncio
+import os
+import logging
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
 from config import API_BOT
