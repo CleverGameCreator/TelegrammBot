@@ -3,9 +3,11 @@ from aiogram.types import Message, CallbackQuery
 
 call_router = Router()
 
+import keyboard.inline_kb as ikb
+
 @call_router.message(F.text == "Меню")
 async def menu(message: Message):
-    await message.answer("Выберите пункт меню:")
+    await message.answer("Выберите пункт меню:", reply_markup=ikb.inline_kb)
 
 @call_router.message(F.text == "Поддержка")
 async def menu(message: Message):
