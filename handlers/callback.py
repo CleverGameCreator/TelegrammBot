@@ -20,3 +20,7 @@ async def menu(message: Message):
 @call_router.message(F.text == "Назад")
 async def menu(message: Message):
     await message.answer("Выберите пункт меню:")
+
+@call_router.callback_query(F.data == 'drinks')
+async def drinks(callback: CallbackQuery):
+    await callback.message.answer("Напитки:\nКола\nФанта\nСпрайт")
