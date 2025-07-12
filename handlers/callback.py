@@ -21,6 +21,16 @@ async def menu(message: Message):
 async def menu(message: Message):
     await message.answer("Выберите пункт меню:")
 
+
+
 @call_router.callback_query(F.data == 'drinks')
 async def drinks(callback: CallbackQuery):
     await callback.message.answer("Напитки:\nКола\nФанта\nСпрайт")
+
+@call_router.callback_query(F.data == 'pizza')
+async def drinks(callback: CallbackQuery):
+    await callback.message.answer("Пиццы:\nМаргарита\nПиперони\nСырная")
+
+@call_router.callback_query(F.data == 'salat')
+async def drinks(callback: CallbackQuery):
+    await callback.message.answer("Салаты:\nЦезарь\nОливье\nДомашний")
