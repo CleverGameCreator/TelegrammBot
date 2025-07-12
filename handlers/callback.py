@@ -13,7 +13,7 @@ async def menu(message: Message):
 
 @call_router.message(F.text == "Информация")
 async def menu(message: Message):
-    await message.answer("Информация о боте тут ")
+    await message.answer("Информация о боте тут")
 
 @call_router.message(F.text == "Назад")
 async def menu(message: Message):
