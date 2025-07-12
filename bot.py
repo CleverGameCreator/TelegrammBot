@@ -4,6 +4,7 @@ import logging
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
 from config import API_BOT
+from handlers.callback import call_router
 from handlers.commands import router
 
 
@@ -15,6 +16,7 @@ async def main():
         dp = Dispatcher()
         print('Бот запущен')
         dp.include_router(router)
+        dp.include_router(call_router)
         await dp.start_polling(bot)
     except Exception as ex:
         print(f"There is an Exception {ex}")
