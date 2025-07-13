@@ -26,7 +26,7 @@ async def menu(message: Message):
 @call_router.callback_query(F.data == 'drinks')
 async def drinks(callback: CallbackQuery):
     await callback.answer("Вы выбрали напитки")
-    await callback.message.answer("Напитки:\nКола\nФанта\nСпрайт")
+    await callback.message.answer("Напитки:", reply_markup=await ikb.drinks_list())
 
 @call_router.callback_query(F.data == 'pizza')
 async def drinks(callback: CallbackQuery):
